@@ -2,6 +2,7 @@ package com.example;
 
 import javax.sql.DataSource;
 
+import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.cloud.config.java.AbstractCloudConfig;
 import org.springframework.cloud.service.PooledServiceConnectorConfig.PoolConfig;
@@ -22,6 +23,11 @@ public class CloudConfig extends AbstractCloudConfig {
 	DataSource dataSource() {
 		return connectionFactory().dataSource(new DataSourceConfig(
 				new PoolConfig(minPoolSize, maxPoolSize, maxWaitTime), null));
+	}
+
+	@Bean
+	ConnectionFactory rabbitConnectionFactory() {
+		return connectionFactory().rabbitConnectionFactory();
 	}
 
 	public int getMinPoolSize() {

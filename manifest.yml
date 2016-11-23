@@ -1,0 +1,8 @@
+applications:
+- name: customer-svc
+  buildpack: java_buildpack
+  memory: 512m
+  path: target/customer-service-0.0.1-SNAPSHOT.jar
+  services:
+  - rabbit-binder # cf create-service cloudamqp lemur rabbit-binder
+  - customer-db # cf create-service cleardb spark customer-db
