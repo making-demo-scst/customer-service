@@ -16,7 +16,7 @@ import org.springframework.messaging.MessageChannel;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(properties = "sever.port=0")
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
 public class CustomerHandlerTest {
 	@Autowired
 	MessageCollector messageCollector;
