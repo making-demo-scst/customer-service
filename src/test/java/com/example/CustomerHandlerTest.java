@@ -14,9 +14,11 @@ import org.springframework.cloud.stream.test.binder.MessageCollector;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
+@Transactional
 public class CustomerHandlerTest {
 	@Autowired
 	MessageCollector messageCollector;
